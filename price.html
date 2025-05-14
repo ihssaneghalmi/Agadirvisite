@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        .containire {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgb(108, 106, 106);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .total {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+        }
+
+        .journey-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+
+        h3 {
+            color: #ff5722;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .phone-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #eb5d1b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-family: "Nunito", serif;
+        }
+        .required:after {
+            content: " *";
+            color: #e85642;
+        }
+        img{
+            width: 40px;
+            height: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .phone-select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            width: 360PX;
+        }
+
+        .phone-input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .phone-code {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .phone-number-input {
+            flex: 1;
+        }
+
+        .accordion {
+            font-family: "Nunito", serif;
+        }
+
+        .accordion-header {
+          background-color: #eb5d1b;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accordion-content {
+            background-color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .field-group {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .field-group:last-child {
+            border-bottom: none;
+        }
+
+        .field-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .price {
+            color: #FF6B41;
+            font-weight: bold;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+          
+            justify-content: center;
+        }
+        .fixed-time {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="containire">
+        <div class="journey-inputs">
+            <div class="accordion">
+                <div class="accordion-header" id="arrivalHeader">
+                    <span class="icon">✈️</span>
+                    Arrivée
+                </div>
+                <div class="accordion-content" id="arrivalContent">
+                    <div class="field-group">
+                        <span class="icon">👥</span>
+                        <label for="text">Nombre de personnes</label>
+                        <input type="number" placeholder="Nombre de personnes" min="0">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">📍</span>
+                        <label for="text">Ville de provenance</label>
+                        <input type="text" placeholder="Ville de provenance">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">🔢</span>
+                        <label for="text">N˚ de vol</label>
+                        <input type="text" placeholder="N° de vol">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">✈️</span>
+                        <label for="text">Compagnie Aérienne</label>
+                        <input type="text" placeholder="Compagnie Aérienne">
+                    </div>
+                    <div class="field-group">
+                        <label for="text">Date d'arrivée</label>
+                        <span class="icon">📅</span>
+                        <input type="date">
+                    </div>
+                    <div class="field-group">
+                        <label for="text">Heure d'atterissage</label>
+                        <span class="icon">⏰</span>
+                        <input type="time">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">💶</span>
+                        <span class="price">Prix Transfert Arrivée : 0 €</span>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById('arrivalHeader').addEventListener('click', function() {
+                    const content = document.getElementById('arrivalContent');
+                    content.classList.toggle('active');
+                });
+            </script>
+           <div class="accordion">
+            <div class="accordion-header" id="departureHeader">
+                <span class="icon">✈️</span>
+                Départ
+            </div>
+            <div class="accordion-content" id="departureContent">
+                <div class="field-group">
+                    <span class="icon">👥</span>
+                    <label for="text">Nombre de personnes</label>
+                    <input type="number" placeholder="Nombre de personnes" min="0">
+                </div>
+                <div class="field-group">
+                    <span class="icon">📅</span>
+                    <label for="text">Date d'arrivée</label>
+                    <input type="date" placeholder="Date de départ">
+                </div>
+                <div class="field-group">
+                    <span class="icon">⏰</span>
+                    <label for="text">Heure d'atterissage</label>
+                    <input type="time">
+                </div>
+                <div class="field-group">
+                    <span class="icon">🏨</span>
+                    <label for="texte ">Heure de départ de l'hôtel</label>
+                    <div class="fixed-time">09:00</div>
+                </div>
+                <div class="field-group">
+                    <span class="icon">💶</span>
+                    <span class="price">Prix Transfert Départ : 0 €</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            document.getElementById('departureHeader').addEventListener('click', function() {
+                const content = document.getElementById('departureContent');
+                content.classList.toggle('active');
+            });
+        </script>
+        <div class="header">
+            <div></div>
+            <div class="total">
+                <img src="les images de projet d'agadir visite/calendrier-3d.png" alt="Calendar">
+                Total : 0 €
+            </div>
+        </div>
+        <h3>Vos coordonnées</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required" for="nom">Nom</label>
+                    <input type="text" id="nom" required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="prenom">Prénom</label>
+                    <input type="text" id="prenom" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required" for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="hotel">Hôtel/Résidence à Agadir</label>
+                    <input type="text" id="hotel" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <div class="phone-input">
+                    <div class="phone-input-container">
+                        <select class="phone-select" id="country-select" onchange="updatePhoneCode()">
+                            <option value="fr" data-code="+33">🇫🇷 France (+33)</option>
+                            <option value="us" data-code="+1">🇺🇸 États-Unis (+1)</option>
+                            <option value="gb" data-code="+44">🇬🇧 Royaume-Uni (+44)</option>
+                            <option value="de" data-code="+49">🇩🇪 Allemagne (+49)</option>
+                            <option value="es" data-code="+34">🇪🇸 Espagne (+34)</option>
+                            <option value="it" data-code="+39">🇮🇹 Italie (+39)</option>
+                            <option value="pt" data-code="+351">🇵🇹 Portugal (+351)</option>
+                            <option value="be" data-code="+32">🇧🇪 Belgique (+32)</option>
+                            <option value="ch" data-code="+41">🇨🇭 Suisse (+41)</option>
+                            <option value="ma" data-code="+212">🇲🇦 Maroc (+212)</option>
+                            <option value="dz" data-code="+213">🇩🇿 Algérie (+213)</option>
+                            <option value="tn" data-code="+216">🇹🇳 Tunisie (+216)</option>
+                            <option value="ca" data-code="+1">🇨🇦 Canada (+1)</option>
+                            <option value="au" data-code="+61">🇦🇺 Australie (+61)</option>
+                            <option value="jp" data-code="+81">🇯🇵 Japon (+81)</option>
+                            <option value="cn" data-code="+86">🇨🇳 Chine (+86)</option>
+                            <option value="in" data-code="+91">🇮🇳 Inde (+91)</option>
+                            <option value="br" data-code="+55">🇧🇷 Brésil (+55)</option>
+                            <option value="mx" data-code="+52">🇲🇽 Mexique (+52)</option>
+                            <option value="za" data-code="+27">🇿🇦 Afrique du Sud (+27)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group remarks">
+                <h3>Remarques</h3>
+                <textarea></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Reservez</button>
+        </form>
+    </div>
+    <script>
+        function updatePhoneCode() {
+            const select = document.getElementById('country-select');
+            const selectedOption = select.options[select.selectedIndex];
+            const phoneInput = document.getElementById('phone-number');
+            const phoneCode = selectedOption.getAttribute('data-code');
+            
+            // Update placeholder with selected country code
+            phoneInput.placeholder = `${phoneCode} Numéro de téléphone`;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updatePhoneCode);
+    </script>
+</body>
+</html>

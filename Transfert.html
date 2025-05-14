@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title> Transfert</title>
+    <link rel="website icon" type="png" href="https://agadir-visite.com/wp-content/uploads/2022/08/logo-agadir.png">
+    </head>
+    <style>
+        .containire {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding:10px;
+            border: 1px solid rgb(154, 150, 150);
+            display: none;
+           transition: all 0.3s ease;
+
+        }
+        .containire.active {
+         display: block;
+     }
+     .button-header.active {
+      background-color: #ec6d4a;
+      border-color: orange;
+       color: rgb(255, 255, 255);
+}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .total {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+        }
+
+        .journey-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+
+        h3 {
+            color: #ff5722;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .phone-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #eb5d1b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-family: "Nunito", serif;
+        }
+        .required:after {
+            content: " *";
+            color: #e85642;
+        }
+        .Calendar{
+            width: 40px;
+            height: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .phone-select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            width: 360PX;
+        }
+
+        .phone-input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .phone-code {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .phone-number-input {
+            flex: 1;
+        }
+
+        .accordion {
+            font-family: "Nunito", serif;
+        }
+
+        .accordion-header {
+          background-color: #eb5d1b;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accordion-content {
+            background-color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-top: none;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .field-group {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .field-group:last-child {
+            border-bottom: none;
+        }
+
+        .field-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .price {
+            color: #FF6B41;
+            font-weight: bold;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+          
+            justify-content: center;
+        }
+        .fixed-time {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+            color: #666;
+        }
+        .required {
+        margin-right: 400px;
+        }
+    </style>
+    <body>
+        <header>
+            <div class="info-bar">
+                            <div class="contact-info">
+                                <ul>
+                                <li><i class="fas fa-phone"></i> +212 6 61 75 20 25</li>
+                                <li><i class="fas fa-phone"></i> +212 6 61 38 03 17</li>
+                                <li><i class="fas fa-phone"></i> +212 5 25 10 28 33</li>
+                                <li><i class="fas fa-envelope"></i> info@agadir-visite.com</li>
+                                </ul>
+                            </div>
+                            <div class="social-icons">
+                              <a href="https://www.google.com/maps/place/Agadir+Visite/@30.4197108,-9.6013333,15z/data=!4m6!3m5!1s0xdb3b6fc1c289b5f:0x90c534400c57c56b!8m2!3d30.4088163!4d-9.5952974!16s%2Fg%2F11g6wgg5ny?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><img src="les images de projet d'agadir visite/broche-de-localisation (1).png" alt="maps" width="20px"></a>
+                              <a href="https://www.tripadvisor.fr/Attraction_Review-g293731-d4545246-Reviews-Agadir_Visite-Agadir_Souss_Massa.html"><img src="les images de projet d'agadir visite/tripadvisor (1).png" alt="tripadvisor" width="20px"></a>
+                              <a href="https://web.facebook.com/societeagadirvisite#"><img src="les images de projet d'agadir visite/facebook.png" alt="facebook" width="20px"></a>
+                              <a href="https://www.instagram.com/agadir.visite/"><img src="les images de projet d'agadir visite/instagram.png" alt="instagram" width="20px"></a>
+                            </div>
+                            <a href="vehicule.html"><button class="vehicles-btn">Nos Véhicules</button></a>
+                         
+                        </div>
+    </header>
+    <section >
+                        <nav class="navbar">
+                          <div class="logo">
+                              <img src="https://agadir-visite.com/wp-content/uploads/2021/08/fin-fin-agadir-.svg" alt="Home" >
+                            </div>
+                            <div class="nav-links">
+                              <ul>
+                                <li><a href="page d'accuiel.html">Accueil</a></li>
+                                <li><a href="Excursion.html">Excursions</a></li>
+                                <li><a href="Circuits.html">Circuits</a></li>
+                                <li><a href="Activiter.html">Activités</a></li>
+                                <li><a href="Transfert.html">Transferts</a></li>
+                                <li><a href="Blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="paniercheckout.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                              </ul>
+                            </div>
+                            <img src="les images de projet d'agadir visite/menu.png" alt="menu-hamburger" class="menu-hamburger">
+                            <script >
+                               const menuHamburger = document.querySelector(".menu-hamburger");
+                              const navLinks = document.querySelector(".nav-links");
+                              menuHamburger.addEventListener ('click' ,()=>{
+                              navLinks.classList.toggle('mobile-menu')
+                              });
+                            </script>
+                        </nav>
+      </div>            
+    </section>
+              <div class="breadcrumb-main">
+                <div class="container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Agadir_%E2%80%93_Al_Massira_Airport_03.jpg">
+                   <div class="breadcrumb-container-inner" >
+                       <ol class="breadcrumb">
+                        <li><a href="page d'accuiel.html">Accueil</a> </li>
+                        <li class="active">Agadir Transferts</li>  
+                </ol>			 	
+            </div>  
+            </div>   
+          </div>
+          <div class="transfer-section">
+            <h2>Agadir Transferts Aéroport et inter-villes</h2>
+            <p>
+              Pour autres Transferts au départ d'Agadir et inter-villes, le prix sera fixé selon le nombre
+              de personnes et la destination !
+            </p>
+            <p>
+              On peut éventuellement réaliser des Transferts pour Agadir au départ de Marrakech, Casablanca,
+              Ouarzazat, Fès, Tanger ...<br />
+              On propose aussi la Location d'un véhicule <strong>"Minibus – Minivan – SUV – 4x4"</strong>
+              avec chauffeur et carburant, Transport Touristique Toute Directions au Maroc.
+            </p>
+          </div>
+          <div class="destination-section">
+            <h2>Sélectionnez votre destination</h2>
+            <div class="destination-buttons">
+                <div class="button-header transfer-header">1– Transfert Agadir / Aéroport d’Agadir</div>
+                <div class="button-header transfer-header">2– Transfert Taghazout / Aéroport Agadir</div>
+                <div class="button-header transfer-header">3– Transfert Agadir / Marrakech</div> 
+                <div class="button-header transfer-header">4– Transfert Agadir / Casablanca</div>
+                <div class="button-header transfer-header">5– Transfert Agadir / Essaouira</div>
+                <div class="button-header transfer-header">6– Transfert Agadir / Taroudant</div>
+          </div> 
+          <div class="containire">
+            <div class="journey-inputs">
+                <div class="accordion">
+                    <div class="accordion-header" id="arrivalHeader">
+                        <span class="icon">✈️</span>
+                        Arrivée
+                    </div>
+                    <div class="accordion-content" id="arrivalContent">
+                        <div class="field-group">
+                            <span class="icon">👥</span>
+                            <label for="text">Nombre de personnes</label>
+                            <input type="number" placeholder="Nombre de personnes" min="0">
+                        </div>
+                        <div class="field-group">
+                            <span class="icon">📍</span>
+                            <label for="text">Ville de provenance</label>
+                            <input type="text" placeholder="Ville de provenance">
+                        </div>
+                        <div class="field-group">
+                            <span class="icon">🔢</span>
+                            <label for="text">N˚ de vol</label>
+                            <input type="text" placeholder="N° de vol">
+                        </div>
+                        <div class="field-group">
+                            <span class="icon">✈️</span>
+                            <label for="text">Compagnie Aérienne</label>
+                            <input type="text" placeholder="Compagnie Aérienne">
+                        </div>
+                        <div class="field-group">
+                            <label for="text">Date d'arrivée</label>
+                            <span class="icon">📅</span>
+                            <input type="date">
+                        </div>
+                        <div class="field-group">
+                            <label for="text">Heure d'atterissage</label>
+                            <span class="icon">⏰</span>
+                            <input type="time">
+                        </div>
+                        <div class="field-group">
+                            <span class="icon">💶</span>
+                            <span class="price">Prix Transfert Arrivée : 0 €</span>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById('arrivalHeader').addEventListener('click', function() {
+                        const content = document.getElementById('arrivalContent');
+                        content.classList.toggle('active');
+                    });
+                </script>
+               <div class="accordion">
+                <div class="accordion-header" id="departureHeader">
+                    <span class="icon">✈️</span>
+                    Départ
+                </div>
+                <div class="accordion-content" id="departureContent">
+                    <div class="field-group">
+                        <span class="icon">👥</span>
+                        <label for="text">Nombre de personnes</label>
+                        <input type="number" placeholder="Nombre de personnes" min="0">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">📅</span>
+                        <label for="text">Date d'arrivée</label>
+                        <input type="date" placeholder="Date de départ">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">⏰</span>
+                        <label for="text">Heure d'atterissage</label>
+                        <input type="time">
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">🏨</span>
+                        <label for="texte ">Heure de départ de l'hôtel</label>
+                        <div class="fixed-time">09:00</div>
+                    </div>
+                    <div class="field-group">
+                        <span class="icon">💶</span>
+                        <span class="price">Prix Transfert Départ : 0 €</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <script>
+                document.getElementById('departureHeader').addEventListener('click', function() {
+                    const content = document.getElementById('departureContent');
+                    content.classList.toggle('active');
+                });
+            </script>
+            <div class="header">
+                <div></div>
+                <div class="total">
+                    <img src="les images de projet d'agadir visite/calendrier-3d.png" class="Calendar">
+                    Total : 0 €
+                </div>
+            </div>
+            <h3>Vos coordonnées</h3>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required" for="nom">Nom</label>
+                        <input type="text" id="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required" for="prenom">Prénom</label>
+                        <input type="text" id="prenom" required>
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required" for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required" for="hotel">Hôtel/Résidence à Agadir</label>
+                        <input type="text" id="hotel" required>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label  class="required" for="telephone">Téléphone</label>
+                    <div class="phone-input">
+                        <div class="phone-input-container">
+                            <select class="phone-select" id="country-select" onchange="updatePhoneCode()">
+                                <option value="fr" data-code="+33">🇫🇷 France (+33)</option>
+                                <option value="us" data-code="+1">🇺🇸 États-Unis (+1)</option>
+                                <option value="gb" data-code="+44">🇬🇧 Royaume-Uni (+44)</option>
+                                <option value="de" data-code="+49">🇩🇪 Allemagne (+49)</option>
+                                <option value="es" data-code="+34">🇪🇸 Espagne (+34)</option>
+                                <option value="it" data-code="+39">🇮🇹 Italie (+39)</option>
+                                <option value="pt" data-code="+351">🇵🇹 Portugal (+351)</option>
+                                <option value="be" data-code="+32">🇧🇪 Belgique (+32)</option>
+                                <option value="ch" data-code="+41">🇨🇭 Suisse (+41)</option>
+                                <option value="ma" data-code="+212">🇲🇦 Maroc (+212)</option>
+                                <option value="dz" data-code="+213">🇩🇿 Algérie (+213)</option>
+                                <option value="tn" data-code="+216">🇹🇳 Tunisie (+216)</option>
+                                <option value="ca" data-code="+1">🇨🇦 Canada (+1)</option>
+                                <option value="au" data-code="+61">🇦🇺 Australie (+61)</option>
+                                <option value="jp" data-code="+81">🇯🇵 Japon (+81)</option>
+                                <option value="cn" data-code="+86">🇨🇳 Chine (+86)</option>
+                                <option value="in" data-code="+91">🇮🇳 Inde (+91)</option>
+                                <option value="br" data-code="+55">🇧🇷 Brésil (+55)</option>
+                                <option value="mx" data-code="+52">🇲🇽 Mexique (+52)</option>
+                                <option value="za" data-code="+27">🇿🇦 Afrique du Sud (+27)</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group remarks">
+                    <h3>Remarques</h3>
+                    <textarea></textarea>
+                </div>
+    
+                <button type="submit" class="submit-btn">Reservez</button>
+            </form>
+        </div>
+        <script>
+            function updatePhoneCode() {
+                const select = document.getElementById('country-select');
+                const selectedOption = select.options[select.selectedIndex];
+                const phoneInput = document.getElementById('phone-number');
+                const phoneCode = selectedOption.getAttribute('data-code');
+                
+                // Update placeholder with selected country code
+                phoneInput.placeholder = `${phoneCode} Numéro de téléphone`;
+            }
+    
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', updatePhoneCode);
+        </script>
+        <script>
+            // JavaScript pour gérer le clic sur les destinations
+            document.querySelectorAll('.button-header').forEach(button => {
+              button.addEventListener('click', function() {
+                // Active/désactive le conteneur
+                document.querySelector('.containire').classList.toggle('active');
+                
+                // Optionnel: Ajoute une classe active au bouton cliqué
+                document.querySelectorAll('.button-header').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+              });
+            });
+            </script>
+          </div> 
+        </div>
+    </div>
+                              
+    <footer class="footer">
+        <div class="footer-container3">
+            <div class="footer-logo-description">
+                <img src="https://agadir-visite.com/wp-content/uploads/2022/08/logo-agadir.png" alt="Agadir Visite Logo" class="footer-logo">
+                <p>
+                    <strong>Agadir Visite</strong>, votre Agence Locale de Tourisme, d’Excursions, d’Activités, de Circuits Touristiques et de Transfert Aéroport & inter-villes.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Parcourir</h4>
+                <ul>
+                    <li><a href="Article.html">Agadir</a></li>
+                    <li><a href="Article.html">Marrakech</a></li>
+                    <li><a href="Article.html">Maroc</a></li>
+                </ul>
+              </div>
+            <div class="footer-links">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="A propot .html">Qui Sommes Nous ?</a></li>
+                    <li><a href="question.html">Questions & Réponses</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Coordonnées</h4>
+                <ul>
+                    <li><i class="fa fa-phone"></i> +212 5 25 10 28 33</li>
+                    <li><i class="fa fa-phone"></i> +212 6 61 75 20 25</li>
+                    <li><i class="fa fa-phone"></i> +212 6 81 38 03 17</li>
+                    <li><i class="fa fa-envelope"></i> info@agadir-visite.com</li>
+                    <li><i class="fa fa-map-marker"></i> N° 20 – Bloc C – Complexe TIVOLI – Secteur Balnéaire – 80010 – Agadir – Maroc</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+              <div class="arrow-button">
+            <a href=""><img src="les images de projet d'agadir visite/keyboard_control_key_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="fleche" width="40px"></a>
+          </div>
+              <a href="https://www.google.com/maps/place/Agadir+Visite/@30.4197108,-9.6013333,15z/data=!4m6!3m5!1s0xdb3b6fc1c289b5f:0x90c534400c57c56b!8m2!3d30.4088163!4d-9.5952974!16s%2Fg%2F11g6wgg5ny?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><img src="les images de projet d'agadir visite/broche-de-localisation (1).png" alt="maps" width="20px"></a>
+              <a href="https://www.tripadvisor.fr/Attraction_Review-g293731-d4545246-Reviews-Agadir_Visite-Agadir_Souss_Massa.html"><img src="les images de projet d'agadir visite/tripadvisor (1).png" alt="tripadvisor" width="20px"></a>
+              <a href="https://web.facebook.com/societeagadirvisite#"><img src="les images de projet d'agadir visite/facebook.png" alt="facebook" width="20px"></a>
+              <a href="https://www.instagram.com/agadir.visite/"><img src="les images de projet d'agadir visite/instagram.png" alt="instagram" width="20px"></a>
+              <a href="https://www.youtube.com/@agadirvisite-cu3kw"><img src="les images de projet d'agadir visite/youtube.png" alt="youtoob" width="20px"></a>
+              <p><strong>Agadir Visite </strong> – 2005 – 2024 © – 6ème Version – tous droits réservés</p>
+            </div>
+        </div>
+    
+    </footer>
+<div class="language-select">
+  <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+  </select>
+</div>
+    </body>
+</html>

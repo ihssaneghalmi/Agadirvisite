@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-contact-page.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact Aagdir visite</title>
+</head>
+<style>
+
+body, input, textarea,a{
+    font-family: "Nunito", serif;
+}
+#section-wrapper{
+    width: 100%;
+    padding: 10px;
+}
+.box-wrapper{
+    position: relative;
+    display: table;
+    width: 1100px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 30px;
+}
+.info-wrap{ 
+    width: 35%;
+    height: 589px;
+    padding: 40px;
+    float: left;
+    display: flex;
+    border-radius: 30PX 0PX 0PX 30PX;
+    background: linear-gradient(144deg, rgb(216, 144, 61)0%,rgb(139, 70, 12));
+    color: #fff;
+    flex-direction: column;
+}
+.info-title{
+    text-align: left;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+}
+.info-sub-title{
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 17px;
+    letter-spacing: 0.5px;
+    line-height: 26px;
+}
+.info-details{
+    list-style: none;
+    margin: 10px 0px;
+    line-height: 20PX;
+}
+.info-details li{
+ font-size: 18px;
+ color:#0f1b0c;
+ display: flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 5px;
+ 
+}
+
+.info-details li i{
+    background: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin: 08px;
+}
+.info-details li i:hover{
+    color: #ffffff;
+    background-color: #f5681a;
+}
+.info-details li a{
+    color: #fff;
+    text-decoration: none;
+}
+.social-icons{
+    list-style: none;
+    text-align: center;
+    margin: 20px 0px;
+   
+}
+.social-icons li {
+    display: inline-block;
+}
+.social-icons li i{
+    background: #f5681a;
+    color: #fff;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 23%;
+    margin: 0px 5px;
+    cursor: pointer;
+    transition: all .5s;
+    margin-TOP: -15px;
+}
+.social-icons li i:hover{ 
+    background: #fff;
+    color: #f5681a;
+}
+.form-wrap{
+    width: 65%;
+    float: right;
+    padding: 40px 25px 30px 0px;
+    border-radius: 0px 30px 30px 0px;
+    background: #ecf0f3;
+}
+.form-title{
+    text-align: left;
+    margin-left: 23px;
+    font-size: 28px;
+    letter-spacing: .5px;
+}
+.form-fields{
+    display: table;
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+}
+.form-fields input,
+.form-fields textarea{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    width: 100%;
+}
+.form-fields textarea{
+ height: 150px;   
+ resize: none;
+}
+.form-group{
+    width: 46%;
+    float: left;
+    padding: 0px 30px;
+    margin: 14px 12px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbc3d1, inset -8px -8px 8px #ffffff;
+}
+.form-fields .form-group:last-child{
+    width: 96%;
+}
+.submit-button{
+     width: 96%;
+     height: 60px;
+     margin: 0px 12px;
+     border-radius: 30px;
+     font-size: 20px;
+     outline: none;
+     cursor: pointer;
+     color: #fff;
+     text-align: center;
+     background: #f5681a;
+     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+     transition: .5s;
+     border: none;
+}
+.submit-button:hover{
+    color: #f5681a;
+    background-color: #fff;
+}
+/* Responsive CSS */
+@media only screen and (max-width: 767px) {
+    .box-wrapper{
+        width: 100%;
+    }
+    .info-wrap,
+    .form-wrap{
+    width: 100%;
+    height: inherit;
+    float: none;
+    }
+    .form-wrap{
+        border-radius: 0px 0px 30px 30px ;
+    }
+    .info-wrap{
+        border-radius: 30px 30px 0px 0px ;
+}
+.form-group{
+    width: 100%;
+    float: none;
+    margin: 25px 0px;
+}
+.form-fields .form-group:last-child{
+    width: 100%;
+}
+.form-fields.form-group:last-child,.submit-button{
+width: 100%;
+}
+.submit-button{
+    margin: 10px 0px ;
+}
+
+}
+</style>
+<body>
+    <header>
+        <div class="info-bar">
+                        <div class="contact-info">
+                            <ul>
+                            <li><i class="fas fa-phone"></i> +212 6 61 75 20 25</li>
+                            <li><i class="fas fa-phone"></i> +212 6 61 38 03 17</li>
+                            <li><i class="fas fa-phone"></i> +212 5 25 10 28 33</li>
+                            <li><i class="fas fa-envelope"></i> info@agadir-visite.com</li>
+                            </ul>
+                        </div>
+                        <div class="social-icons">
+                          <a href="https://www.google.com/maps/place/Agadir+Visite/@30.4197108,-9.6013333,15z/data=!4m6!3m5!1s0xdb3b6fc1c289b5f:0x90c534400c57c56b!8m2!3d30.4088163!4d-9.5952974!16s%2Fg%2F11g6wgg5ny?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><img src="les images de projet d'agadir visite/broche-de-localisation (1).png" alt="maps" width="20px"></a>
+                          <a href="https://www.tripadvisor.fr/Attraction_Review-g293731-d4545246-Reviews-Agadir_Visite-Agadir_Souss_Massa.html"><img src="les images de projet d'agadir visite/tripadvisor (1).png" alt="tripadvisor" width="20px"></a>
+                          <a href="https://web.facebook.com/societeagadirvisite#"><img src="les images de projet d'agadir visite/facebook.png" alt="facebook" width="20px"></a>
+                          <a href="https://www.instagram.com/agadir.visite/"><img src="les images de projet d'agadir visite/instagram.png" alt="instagram" width="20px"></a>
+                        </div>
+                        <a href="vehicule.html"><button class="vehicles-btn">Nos Véhicules</button></a>
+                     
+                    </div>
+</header>
+<section >
+                    <nav class="navbar">
+                      <div class="logo">
+                          <img src="https://agadir-visite.com/wp-content/uploads/2021/08/fin-fin-agadir-.svg" alt="Home" >
+                        </div>
+                        <div class="nav-links">
+                          <ul>
+                            <li><a href="page d'accuiel.html">Accueil</a></li>
+                            <li><a href="Excursion.html">Excursions</a></li>
+                            <li><a href="Circuits.html">Circuits</a></li>
+                            <li><a href="Activiter.html">Activités</a></li>
+                            <li><a href="Transfert.html">Transferts</a></li>
+                            <li><a href="Blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="paniercheckout.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                          </ul>
+                        </div>
+                        <img src="les images de projet d'agadir visite/menu.png" alt="menu-hamburger" class="menu-hamburger">
+                        <script >
+                           const menuHamburger = document.querySelector(".menu-hamburger");
+                          const navLinks = document.querySelector(".nav-links");
+                          menuHamburger.addEventListener ('click' ,()=>{
+                          navLinks.classList.toggle('mobile-menu')
+                          });
+                        </script>
+                    </nav>
+  </div>            
+</section>
+    <section id="section-wrapper">
+        <div class="box-wrapper">
+            <div class="info-wrap">
+                <h2 class="info-title">Contact-information</h2>
+                <h3 class="info-sub-title">Merci d'avoir choisi notre Agence Agadir Visite</h3>
+                <ul class="info-details">
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Phone: </span><a href="tel:06 61 75 20 25">06 61 75 20 25</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Email: </span><a href="mailto:info@agadir-visite.com">info@agadir-visite.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Addresse: </span><a href="N˚ 20 - Bloc C - Complexe TIVOLI - Secteur Balnéaire - 80010 - Agadir - Maroc">N˚ 20 - Bloc C - Complexe TIVOLI - Secteur Balnéaire - 80010 - Agadir - Maroc</a>
+                    </li>
+                </ul>
+                <ul class="social-icons">
+                    <li>
+                        <a href="https://www.facebook.com/Agadir-Visite-110749022293816/">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/agadir.visite/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>                    <li>
+                        <a href="https://www.tripadvisor.fr/Attraction_Review-g293731-d4545246-Reviews-Agadir_Visite-Agadir_Souss_Massa_Draa_Region.html">
+                            <i class="fa fa-tripadvisor"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-wrap">
+                <form action="#" method="post">
+                    <h2 class="form-title"> Send Us message</h2>
+                    <div class="form-fields">
+                        <div class="form-group">
+                            <input type="text" class="Fname" placeholder="Prénom">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="Lname" placeholder="Nom">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="email" placeholder="Votre email">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="Tel" placeholder="Votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="écris votre message ici"></textarea>
+                        </div>
+                    </div>
+                    <input type="submit" value="send message" class="submit-button">
+                </form>
+            </div>
+        </div>
+    </section>
+<section class="maps-frame">
+<p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.3640643061362!2d-9.597872324528556!3d30.408820901215062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b6fc1c289b5f%3A0x90c534400c57c56b!2sAgadir%20Visite!5e1!3m2!1sen!2sma!4v1739610496979!5m2!1sen!2sma" width="1583" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</p>
+</section>
+<footer class="footer">
+    <div class="footer-container3">
+        <div class="footer-logo-description">
+            <img src="https://agadir-visite.com/wp-content/uploads/2022/08/logo-agadir.png" alt="Agadir Visite Logo" class="footer-logo">
+            <p>
+                <strong>Agadir Visite</strong>, votre Agence Locale de Tourisme, d’Excursions, d’Activités, de Circuits Touristiques et de Transfert Aéroport & inter-villes.
+            </p>
+        </div>
+        <div class="footer-links">
+            <h4>Parcourir</h4>
+            <ul>
+                <li><a href="Article.html">Agadir</a></li>
+                <li><a href="Article.html">Marrakech</a></li>
+                <li><a href="Article.html">Maroc</a></li>
+            </ul>
+          </div>
+        <div class="footer-links">
+            <h4>Informations</h4>
+            <ul>
+                <li><a href="A propot .html">Qui Sommes Nous ?</a></li>
+                <li><a href="question.html">Questions & Réponses</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Coordonnées</h4>
+            <ul>
+                <li><i class="fa fa-phone"></i> +212 5 25 10 28 33</li>
+                <li><i class="fa fa-phone"></i> +212 6 61 75 20 25</li>
+                <li><i class="fa fa-phone"></i> +212 6 81 38 03 17</li>
+                <li><i class="fa fa-envelope"></i> info@agadir-visite.com</li>
+                <li><i class="fa fa-map-marker"></i> N° 20 – Bloc C – Complexe TIVOLI – Secteur Balnéaire – 80010 – Agadir – Maroc</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="social-icons">
+          <div class="arrow-button">
+        <a href=""><img src="les images de projet d'agadir visite/keyboard_control_key_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="fleche" width="40px"></a>
+      </div>
+          <a href="https://www.google.com/maps/place/Agadir+Visite/@30.4197108,-9.6013333,15z/data=!4m6!3m5!1s0xdb3b6fc1c289b5f:0x90c534400c57c56b!8m2!3d30.4088163!4d-9.5952974!16s%2Fg%2F11g6wgg5ny?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"><img src="les images de projet d'agadir visite/broche-de-localisation (1).png" alt="maps" width="20px"></a>
+          <a href="https://www.tripadvisor.fr/Attraction_Review-g293731-d4545246-Reviews-Agadir_Visite-Agadir_Souss_Massa.html"><img src="les images de projet d'agadir visite/tripadvisor (1).png" alt="tripadvisor" width="20px"></a>
+          <a href="https://web.facebook.com/societeagadirvisite#"><img src="les images de projet d'agadir visite/facebook.png" alt="facebook" width="20px"></a>
+          <a href="https://www.instagram.com/agadir.visite/"><img src="les images de projet d'agadir visite/instagram.png" alt="instagram" width="20px"></a>
+          <a href="https://www.youtube.com/@agadirvisite-cu3kw"><img src="les images de projet d'agadir visite/youtube.png" alt="youtoob" width="20px"></a>
+          <p><strong>Agadir Visite </strong> – 2005 – 2024 © – 6ème Version – tous droits réservés</p>
+        </div>
+    </div>
+
+</footer>
+<div class="language-select">
+<select id="languageSwitcher">
+  <option value="en">English</option>
+  <option value="fr">Français</option>
+  <option value="es">Español</option>
+  <option value="de">Deutsch</option>
+</select>
+</div>
+</body>
+</html>

@@ -1,0 +1,1719 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+   font-family: "Noto Serif", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: white;
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.container {
+    position: relative;
+    width: 100%;
+}
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#d2d2d2a8;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 60px;
+}
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+}
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: white;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+font-size: 1.3rem;
+}
+.navigation ul li a span img{
+    width: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    margin-top: 50px;
+}
+.navigation ul li a p {
+font-size: 2rem;
+margin-left: 20px;
+margin-top: 40px;
+margin-bottom: 40px;
+color:  rgb(59, 133, 207);
+font-family: "DM Serif Display", serif;
+}
+.navigation ul li a p strong {
+    color: rgb(233, 118, 36);
+    font-family: "DM Serif Display", serif;
+}
+.navigation ul li a:hover,
+.navigation ul li a.hovered {
+    color:  rgb(59, 133, 207);
+}
+.navigation ul li .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-size: 1.3rem;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right:0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px white;
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right:0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px white;
+    pointer-events: none;
+}
+.main {
+    position: relative;
+    width: calc(100% - 300px);
+    left:300px;
+    background-color: white;
+    transition:0.5s;
+}
+.main.active{
+    width: calc(100% - 60px);
+    left: 60px
+}
+.topbar {
+  width: 100%;
+    height: 60px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+        
+.content {
+            flex: 1;
+            padding: 20px;
+            margin: 50px;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+       
+        .booking-container {
+            max-width: 1200px;
+            font-family: Arial, sans-serif;
+        }
+        .heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .title-input {
+            width: 99%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+        .elementor-button {
+            background-color: #0073aa;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+            margin-bottom: 20px;
+        }
+
+        .editor-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            
+            
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .toolbar button {
+            padding: 5px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        }
+
+        .toolbar select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .media-button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: "DM Serif Display", serif;
+            width: 100%;
+        }
+
+        .word-count {
+            margin-top: 10px;
+            color: #666;
+            font-size: 12px;
+            font-family: "DM Serif Display", serif;
+        }
+        textarea {
+            width: 98%;
+            height: 300px;
+            font-size: inherit;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            font-family: "DM Serif Display", serif;
+        }
+        .settings-container {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .settings-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .settings-content {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .number-input {
+            width: 200px !important;
+        }
+
+        .category-select {
+            width: 200px !important;
+        }
+        button {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #ed8641;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "DM Serif Display", serif;
+}
+
+button:hover {
+  background-color: #d87b34;
+}
+.schedule-container {
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .schedule-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+         
+        }
+
+        .schedule-content {
+            padding: 20px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .duration-section {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            margin-bottom: 20px;
+        }
+
+        .duration-section label {
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .duration-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        select {
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .schedule-grid {
+            margin-top: 20px;
+        }
+
+        .day-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .day-label {
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+            color: #333;
+        }
+
+        .time-picker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .time-label {
+            color: #333;
+        }
+        .address-container {
+            font-family: "DM Serif Display", serif;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-content {
+            padding: 20px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-label {
+            min-width: 80px;
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+        .address-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+        .price-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .price-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .price-content {
+            padding: 20px;
+        }
+
+        .price-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .price-label {
+            min-width: 80px;
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+        .rate-container {
+            display: flex;
+            align-items: center;
+            gap:10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .rate-button {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            border: 1px solid #007BFF;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .rate-button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .plus-icon {
+            font-weight: bold;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-family: "DM Serif Display", serif;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin-left: 305px;
+          margin-top  :40px ;
+          margin-bottom: 40PX;
+            padding: 20px;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .forme-group {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 40px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .forme-group label {
+            color: #000000;
+            display: block;
+            margin-bottom: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .forme-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .weekdays {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-section {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-family: "DM Serif Display", serif;
+           
+        }
+        .price-section span{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-family: "DM Serif Display", serif;
+
+        }
+        .conditional-prices {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #ed8641;
+            color: white;
+        }
+        .if{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .step-section {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    font-family: "DM Serif Display", serif;
+}
+
+   .section-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: "DM Serif Display", serif;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.step-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+
+.editor-button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.editor-content {
+    border: 1px solid #ddd;
+    min-height: 200px;
+    padding: 10px;
+    background-color: white;
+}
+
+.view-buttons {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.view-button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.remove-button {
+    color: #ffffff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.add {
+    margin-bottom: 20px; 
+}
+.included-section {
+    margin-top: 20px;
+}
+
+.section-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 8px 15px;
+}
+
+.content-area {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.content-label {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "DM Serif Display", serif;
+}
+
+.add-media-btn {
+    background-color: #fff;
+    border: 1px solid #8090a0;
+    color: #0066cc;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.editor-area {
+    border: 1px solid #ddd;
+    min-height: 150px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.view-toggle {
+    float: right;
+}
+
+.view-toggle button {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+.services-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+h2 {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px;
+}
+
+.selection-method {
+    margin: 15px 0;
+}
+
+.selection-method label {
+    font-weight: bold;
+}
+
+.services {
+    margin-top: 10px;
+}
+
+#select-deselect {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+}
+
+#select-deselect:hover {
+    background-color: #007bff;
+    color: white;
+}
+.related-items-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px 15px;
+    font-family: "DM Serif Display", serif;
+    font-size: 16px;
+    gap: 20px;
+}
+.related-items-content {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: white;
+    font-family: "DM Serif Display", serif;
+}
+.contente {
+            padding: 10px;
+            border: 1px solid #ddd;
+             border-radius: 5px;
+        }
+        .step-container {
+  
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.step-content {
+    padding: 10px;
+    display: none; /* Masqué par défaut */
+}
+
+.step-content.open {
+    display: block; /* Afficher lorsque ouvert */
+}
+
+.toggle-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon.open {
+    transform: rotate(180deg); /* Rotation de l'icône */
+}
+        .title-input {
+            width: 99%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+
+       
+
+        .editor-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 10px;
+            width: 1115PX;
+            
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .media-button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: "DM Serif Display", serif;
+            width: 100%;
+        }
+        .contente {
+            height: 100%;
+            font-size: inherit;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+.menu {
+    height: 37px; /* Container height */
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    padding: 4px;
+    gap: 35px;
+}
+.pictur{
+    height: 44px; /* Container height */
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    border: 1px solid rgb(104, 103, 103);
+}
+.photo {
+    width: 25px;
+    height: 35px;
+    margin: 3px;
+}
+
+        .heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .title-input {
+            width: 99%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .elementor-button {
+            background-color: #0073aa;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+            margin-bottom: 20px;
+        }
+
+        .editor-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            
+            
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .toolbar button {
+            padding: 5px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        }
+
+        .toolbar select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .media-button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: "DM Serif Display", serif;
+            width: 100%;
+        }
+
+        .word-count {
+            margin-top: 10px;
+            color: #666;
+            font-size: 12px;
+            font-family: "DM Serif Display", serif;
+           
+        }
+       
+        textarea {
+            width: 98%;
+            height: 300px;
+            font-size: inherit;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            font-family: "DM Serif Display", serif;
+        }
+        .settings-container {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .settings-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+       
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .number-input {
+            width: 200px !important;
+        }
+
+        .category-select {
+            width: 200px !important;
+        }
+        button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #ed8641;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "DM Serif Display", serif;
+        }
+
+      button:hover {
+  background-color: #d87b34;
+      }
+       .schedule-container {
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .schedule-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+         
+        }
+
+      
+
+        .duration-section {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            margin-bottom: 20px;
+        }
+
+        .duration-section label {
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .duration-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        select {
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .schedule-grid {
+            margin-top: 20px;
+        }
+
+        .day-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .day-label {
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+            color: #333;
+        }
+
+        .time-picker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .time-label {
+            color: #333;
+        }
+        .address-container {
+            font-family: "DM Serif Display", serif;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-content {
+            padding: 20px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .address-label {
+            min-width: 80px;
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+        .address-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "DM Serif Display", serif;
+        }
+        .price-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .price-header {
+            background-color: #ed8641;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .price-content {
+            padding: 20px;
+        }
+
+        .price-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .price-label {
+            min-width: 80px;
+            color: #333;
+            font-weight: bold;
+            font-family: "DM Serif Display", serif;
+        }
+        .rate-container {
+            display: flex;
+            align-items: center;
+            gap:10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .rate-button {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            border: 1px solid #007BFF;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .rate-button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .plus-icon {
+            font-weight: bold;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-family: "DM Serif Display", serif;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin-left: 305px;
+            margin-top  :40px ;
+            margin-bottom: 40PX;
+            padding: 20px;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .forme-group {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 40px;
+            font-family: "DM Serif Display", serif;
+            align-items: center;
+        }
+
+        .forme-group label {
+            color: #000000;
+            display: block;
+            margin-bottom: 10px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .forme-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .weekdays {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-section {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-family: "DM Serif Display", serif;
+           
+        }
+        .price-section span{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-family: "DM Serif Display", serif;
+
+        }
+        .conditional-prices {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #ed8641;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #ed8641;
+            color: white;
+        }
+        .if{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .step-section {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    font-family: "DM Serif Display", serif;
+}
+
+   .section-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: "DM Serif Display", serif;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.step-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.editor-toolbar {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.editor-button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.editor-content {
+    border: 1px solid #ddd;
+    min-height: 200px;
+    padding: 10px;
+    background-color: white;
+}
+
+.view-buttons {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.view-button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.remove-button {
+    color: #ffffff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.add {
+    margin-bottom: 20px; 
+}
+.included-section {
+    margin-top: 20px;
+}
+
+.section-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 8px 15px;
+}
+
+.content-area {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.content-label {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "DM Serif Display", serif;
+}
+
+.add-media-btn {
+    background-color: #fff;
+    border: 1px solid #8090a0;
+    color: #0066cc;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.editor-area {
+    border: 1px solid #ddd;
+    min-height: 150px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.view-toggle {
+    float: right;
+}
+
+.view-toggle button {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+.services-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+h2 {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px;
+}
+
+
+
+.services {
+    margin-top: 10px;
+}
+
+#select-deselect {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+}
+
+#select-deselect:hover {
+    background-color: #007bff;
+    color: white;
+}
+.related-items-header {
+    background-color: #ed8641;
+    color: white;
+    padding: 10px 15px;
+    font-family: "DM Serif Display", serif;
+    font-size: 16px;
+    gap: 20px;
+}
+.related-items-content {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: white;
+    font-family: "DM Serif Display", serif;
+}
+.content {
+            padding: 10px;
+            border: 1px solid #ddd;
+             border-radius: 5px;
+        }
+        .step-container {
+  
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.step-content {
+    padding: 10px;
+    display: none; /* Masqué par défaut */
+}
+
+.step-content.open {
+    display: block; /* Afficher lorsque ouvert */
+}
+
+.toggle-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+p{
+    display: flex;
+    margin-top:25px;
+    gap: 15px;
+}
+.radio{
+    margin-bottom: 10px;
+}
+.type{
+    align-items:center ;
+}
+.toggle-icon.open {
+    transform: rotate(180deg); /* Rotation de l'icône */
+}
+.buttom{
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #ed8641;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "DM Serif Display", serif;
+}
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #dd6a22;
+    color: white;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.action-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn {
+    background-color: #f08282;
+    color: white;
+}
+
+.visit-btn {
+    background-color: #6e9eec;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.timestamp {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    td, th {
+        padding: 10px;
+    }
+}
+

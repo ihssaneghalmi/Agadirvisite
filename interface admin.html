@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="interface admin.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>Admin Dashboard</title>  
+    <link rel="website icon" type="png" href="https://agadir-visite.com/wp-content/uploads/2022/08/logo-agadir.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="page d'accuiel.html" >
+                <span>
+                    <img src="https://agadir-visite.com/wp-content/uploads/2022/08/logo-agadir.png" alt="Home">
+                </span>
+                <p><strong>Agadir</strong> Visite</p>
+            </a>
+            </li>
+            <li> <a href="#" onclick="showPage('Card')"> <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="title"> Card</span></a></li>
+            <li><a href="#" onclick="showPage('Blog')"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="title"> Blog</span></a></li>
+            <li><a href="#" onclick="showPage('order')"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="title"> Order</span></a></li>
+            <li><a href="#" onclick="showPage('transfer')"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="title">Transfer</span></a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar">
+      <div class="toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+        </div>
+        <div class="content">
+            <div id="Card" class="page active">
+                <div class="booking-container">
+                    <h1 class="heading">Add New Booking</h1>
+                    <input type="text" class="title-input" placeholder="Saisissez le titre">
+                <div class="media-buttons">
+                        <input name="myfile" type="file" class="media-button">
+                    </div>
+                <div class="editor-container">
+                        <div class="toolbar">
+                            <select id="fontSizeSelector">
+                                <option value="32px">H1</option>
+                                <option value="24px">H2</option>
+                                <option value="18px">H3</option>
+                                <option value="14px">H4</option>
+                                <option value="10px">H5</option>
+                                <option value="16px" selected>Paragraph</option>
+                            </select>
+                        </div>
+                        <textarea class="contente" id="textContente"></textarea>
+                       
+                    </div>
+                    <script>
+                        document.getElementById("fontSizeSelector").addEventListener("change", function() {
+                            let selectedFontSize = this.value;
+                            document.getElementById("textContente").style.fontSize = selectedFontSize;
+                        });
+                    </script>
+                <div class="settings-container">
+                    <div class="settings-header">
+                        Basic settings
+                    </div>
+                    <div class="settings-content">
+                        <div class="form-group">
+                            <label for="fromDate">Available from Date</label>
+                            <input type="date" id="text" name="fromDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="toDate">Available to Date</label>
+                            <input type="date" id="text" name="toDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="tolocalisation">Localisation distance</label>
+                            <input type="text" id="text" name="toDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="minGuests">Minimum number of Guests</label>
+                            <input type="number" id="minGuests" name="minGuests" value="1" class="number-input">
+                            <div class="help-text">used in the guest selection dropdown for main age, default 0</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="maxGuests">Maximum number of Guests</label>
+                            <input type="number" id="maxGuests" name="maxGuests" class="number-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Select category to setup other post fields</label>
+                            <select id="category" name="category" class="category-select">
+                                <option value="activities">Activités</option>
+                                <option value="activities">Circuits</option>
+                                <option value="activities">Excursions</option>
+                            </select>
+                        </div>
+                        <button id="locationBtn">Obtenir la distance</button>
+                        <p id="result"></p>
+                    </div>
+                </div>
+                <div class="schedule-container">
+                    <div class="schedule-header">
+                        Schedule section
+                    </div>
+                    <div class="schedule-content">
+                        <div class="duration-section">
+                            <label>Duration</label>
+                            <div class="duration-group">
+                                <span>Days</span>
+                                <select>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday </option>
+                                    <option>Saturday</option>
+                                    <option>Sunday </option>
+                                </select>
+                            </div>
+                            <div class="duration-group">
+                                <span>Hours</span>
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option> 
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <div class="duration-group">
+                                <span>Minutes</span>
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                    <option>50</option>
+                                    <option>60</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="time-picker">
+                            <div class="duration-group">
+                                <span class="time-label">Day of the week:</span>
+                                <select>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday </option>
+                                    <option>Saturday</option>
+                                    <option>Sunday </option>
+                                </select>
+                            </div>
+                            <div class="duration-group">
+                                <span class="time-label">Hour:</span>
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option> 
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <div class="duration-group">
+                                <span class="time-label">Minutes:</span>
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                    <option>50</option>
+                                    <option>60</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-secondary">Add time to schedule</button>
+                        </div>
+            
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary">Save schedule</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="address-container">
+                    <div class="address-header">
+                        Address section
+                    </div>
+                    <div class="address-content">
+                        <div class="address-group">
+                            <label class="address-label">Address</label>
+                            <input type="text" class="address-input" placeholder="Enter address">
+                        </div>
+                    </div>
+                </div>
+                <div class="price-container">
+                    <div class="price-header">
+                      Price
+                    </div>
+                    <div class="price-content">
+                        <div class="price-group">
+                            <label class="price-label">price</label>
+                            <div class="rate-container">
+                                <span>New rate</span>
+                                <button  onclick="openModal()" class="rate-button">
+                                    <span class="plus-icon">+</span>
+                                </button>
+                                <div id="rateModal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="price-section">
+                                        <div class="forme-group">
+                                            <div>
+                                            <label>General price:</label>
+                                                    <input type="text" class="forme-control" placeholder="€">
+                                                    <span>/ ticket</span>
+                                                </div>
+                                                <div>
+                                                    <label>Price from:</label>
+                                                    <input type="text" class="forme-control" placeholder="€">
+                                                    <span>/ ticket</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="conditional-prices">
+                                            <h3>Conditional prices</h3>
+                                                <div class="price-section">
+                                                    <div class="forme-group">
+                                                    <div class="if">
+                                                        <label>IF</label>
+                                                        <select class="forme-control">
+                                                            <option>(don't use)</option>
+                                                            <option>=</option>
+                                                            <option><=</option>
+                                                            <option>>=</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <input type="number" class="forme-control" placeholder="guests">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forme-group">
+                                                <label>Price</label>
+                                                <input type="text" class="form-control" placeholder="€">
+                                                <span>/ ticket</span>
+                                            </div>
+                                            <div class="button-group">
+                                                <button class="btn btn-primary">Add conditional price</button>
+                                                <button class="btn btn-secondary">Cancel</button>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="button-group">
+                                            <button class="btn btn-primary" onclick="saveRate()">Save rate</button>
+                                            <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="step-section">
+                    <div class="section-header">
+                        Step section
+                    </div>
+                    <div class="add">Add Step description</div>
+                    <div class="step-container accordion">
+                        <div class="step-header">
+                            <span class="step-title">Step 1</span>
+                            <span class="toggle-icon">▼</span> <!-- Icône pour ouvrir/fermer -->
+                        </div>
+                        
+                        <div class="step-content"> <!-- Contenu de l'étape -->
+                            <div class="form-group">
+                                <label class="form-label">Title</label>
+                                <input type="text" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <div class="toolbar">
+                                    <select id="fontSizeSelector">
+                                        <option value="32px">H1</option>
+                                        <option value="24px">H2</option>
+                                        <option value="18px">H3</option>
+                                        <option value="14px">H4</option>
+                                        <option value="10px">H5</option>
+                                        <option value="16px" selected>Paragraph</option>
+                                    </select>
+                                </div>
+                                <textarea class="contente" id="textContente"></textarea>
+                            </div>
+                            <div class="media-buttons">
+                                <input name="myfile" type="file" class="media-button">
+                            </div>
+                            <div class="action-buttons">
+                                <div>
+                                    <button>▲</button>
+                                    <button>▼</button>
+                                </div>
+                                <button class="remove-button">Remove Step</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-primary" id="add-step-button">Add Step</button>
+                    </div>
+                </div>
+                <script>
+                    document.querySelectorAll('.step-header').forEach(header => {
+                    header.addEventListener('click', () => {
+                    const stepContainer = header.parentElement;
+                    const stepContent = stepContainer.querySelector('.step-content');
+                    const toggleIcon = stepContainer.querySelector('.toggle-icon');
+            
+                    // Basculer l'affichage du contenu
+                    stepContent.classList.toggle('open');
+                    // Basculer l'icône
+                    toggleIcon.classList.toggle('open');
+                });
+            });
+            // Fonction pour ajouter une nouvelle étape
+            document.getElementById('add-step-button').addEventListener('click', () => {
+                // Récupérer l'élément parent qui contient les étapes
+                const stepContainer = document.querySelector('.step-container');
+            
+                // Créer une nouvelle étape similaire à la première
+                const newStep = document.createElement('div');
+                newStep.classList.add('step-container', 'accordion');
+                newStep.innerHTML = `
+                    <div class="step-header">
+                        <span class="step-title">Step ${stepContainer.querySelectorAll('.step-header').length + 1}</span>
+                        <span class="toggle-icon">▼</span> <!-- Icône pour ouvrir/fermer -->
+                    </div>
+                    
+                    <div class="step-content"> <!-- Contenu de l'étape -->
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="toolbar">
+                                <select id="fontSizeSelector">
+                                    <option value="32px">H1</option>
+                                    <option value="24px">H2</option>
+                                    <option value="18px">H3</option>
+                                    <option value="14px">H4</option>
+                                    <option value="10px">H5</option>
+                                    <option value="16px" selected>Paragraph</option>
+                                </select>
+                            </div>
+                            <textarea class="contente" id="textContente"></textarea>
+                        </div>
+                        <div class="media-buttons">
+                            <input name="myfile" type="file" class="media-button">
+                        </div>
+                        <div class="action-buttons">
+                            <div>
+                                <button>▲</button>
+                                <button>▼</button>
+                            </div>
+                            <button class="remove-button">Remove Step</button>
+                        </div>
+                    </div>
+                `;
+                // Ajouter la nouvelle étape à l'élément container
+                stepContainer.appendChild(newStep);
+                
+                // Attacher l'événement pour ouvrir/fermer l'étape dans la nouvelle étape ajoutée
+                newStep.querySelector('.step-header').addEventListener('click', () => {
+                    const stepContent = newStep.querySelector('.step-content');
+                    const toggleIcon = newStep.querySelector('.toggle-icon');
+            
+                    stepContent.classList.toggle('open');
+                    toggleIcon.classList.toggle('open');
+                });
+            
+                // Attacher l'événement pour supprimer l'étape
+                newStep.querySelector('.remove-button').addEventListener('click', () => {
+                    stepContainer.removeChild(newStep);
+                });
+            });
+                </script>
+                <div class="included-section">
+                    <div class="section-header">Included Section</div>
+                    <div class="content-area">
+                        <div class="content-label">Included Content</div>
+                        <div class="media-buttons">
+                            <input name="myfile" type="file" class="media-button">
+                        </div>
+                        <div class="toolbar">
+                            <select id="fontSizeSelector">
+                                <option value="32px">H1</option>
+                                <option value="24px">H2</option>
+                                <option value="18px">H3</option>
+                                <option value="14px">H4</option>
+                                <option value="10px">H5</option>
+                                <option value="16px" selected>Paragraph</option>
+                            </select>
+                        </div>
+                        <textarea class="contente" id="textContente"></textarea>
+                    </div>
+                
+                    <div class="content-area">
+                        <div class="content-label">Excluded Content</div>
+                        <div class="media-buttons">
+                            <input name="myfile" type="file" class="media-button">
+                        </div>
+                        <div class="editor-toolbar">
+                            <select>
+                                <option>Paragraphe</option>
+                            </select>
+                        </div>
+                        <textarea class="contente" id="textContente"></textarea>
+                    </div>
+                </div>
+                <div class="services-section">
+                    <h2>Services section</h2>
+                    <div class="selection-method">
+                        <label>Service selection method</label>
+                        <input type="radio" name="selection-method" id="checkbox" checked>
+                        <label for="checkbox">Checkbox</label>
+                        <input type="radio" name="selection-method" id="radio">
+                        <label for="radio">Radio</label>
+                    </div>
+                    <div class="services">
+                        <div class="rate-container">
+                            <h3>Services</h3>
+                            <span>Ajouter</span>
+                            <button  onclick="openModal()" class="rate-button">
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div id="rateModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="price-section">
+                                    <div class="forme-group">
+                                        <div>
+                                        <label>General price:</label>
+                                                <input type="text" class="forme-control" placeholder="€">
+                                                <span>/ ticket</span>
+                                            </div>
+                                            <div>
+                                                <label>Price from:</label>
+                                                <input type="text" class="forme-control" placeholder="€">
+                                                <span>/ ticket</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="conditional-prices">
+                                        <h3>Conditional prices</h3>
+                                    
+                                            <div class="price-section">
+                                                <div class="forme-group">
+                                                <div class="if">
+                                                    <label>IF</label>
+                                                    <select class="forme-control">
+                                                        <option>(don't use)</option>
+                                                        <option>=</option>
+                                                        <option><=</option>
+                                                        <option>>=</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <input type="text" class="forme-control" placeholder="guests">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="forme-group">
+                                            <label>Price</label>
+                                            <input type="text" class="form-control" placeholder="€">
+                                            <span>/ ticket</span>
+                                        </div>
+                                        <div class="button-group">
+                                            <button class="btn btn-primary">Add conditional price</button>
+                                            <button class="btn btn-secondary">Cancel</button>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="button-group">
+                                        <button class="btn btn-primary" onclick="saveRate()">Save rate</button>
+                                        <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <h2 class="related-items-header">Related items</h2>
+                <div class="related-items-content">
+                    <label >Related items</label>
+                    <input type="search"  class="search">
+                </div>
+                </div>
+                <script>
+                   function openModal() {
+                        document.getElementById('rateModal').style.display = 'block';
+                    }
+            
+                    function closeModal() {
+                        document.getElementById('rateModal').style.display = 'none';
+                    }
+            
+                    function saveRate() {
+                        // Get all form values
+                        const formData = {
+                            rateTitle: document.querySelector('input[placeholder="(required)"]').value,
+                            dateFrom: document.querySelector('input[placeholder="no limits"]').value,
+                            dateTo: document.querySelector('input[placeholder="no limits"]').value,
+                            // Add more fields as needed
+                        };
+                        // Validate form
+                        if (!formData.rateTitle) {
+                            alert('Rate title is required');
+                            return;
+                        }
+                        // Process the data (you can add your own logic here)
+                        console.log('Saving rate:', formData);
+                        
+                        // Close the modal
+                        closeModal();
+                    }
+            
+                    // Close modal when clicking outside
+                    window.onclick = function(event) {
+                        const modal = document.getElementById('rateModal');
+                        if (event.target === modal) {
+                            closeModal();
+                        }
+                    }
+                </script>
+            </div>
+            <div id="Blog" class="page">
+                <div class="booking-container">
+                    <input type="text" class="title-input" placeholder="Title">
+                <div class="media-buttons">
+                        <input name="myfile" type="file" class="media-button">
+                    </div>
+                    <div class="editor-container">
+                        <div class="toolbar">
+                            <select id="fontSizeSelector">
+                                <option value="32px">H1</option>
+                                <option value="24px">H2</option>
+                                <option value="18px">H3</option>
+                                <option value="14px">H4</option>
+                                <option value="10px">H5</option>
+                            </select>
+                            <div class="pictur">
+                                <img src="cercle.png" class="photo">
+                                <hr>
+                                <img src="case-a-cocher-vide.png" class="photo">
+                            </div>
+                            <div class="menu">
+                                
+                                <img src="menu.png" class="photo" >
+                                <img src="menuu.png" class="photo">
+                                <img src="menue.png" class="photo">
+                            </div>
+                        </div>
+                        <div  contenteditable="true"  class="content" id="textContent"></div>
+                    </div>
+                </div>
+                       <script>
+                       document.addEventListener("DOMContentLoaded", function() {
+                    document.querySelectorAll(".menu img").forEach(img => {
+                        img.addEventListener("click", function() {
+                            const textarea = document.getElementById("textContent");
+                            const images = textarea.querySelectorAll("img");  // Get all images in the contenteditable div
+                            
+                            // Set the text alignment for the entire contenteditable div
+                            if (this.src.includes("menu.png")) {
+                                textarea.style.textAlign = "left";
+                            } else if (this.src.includes("menuu.png")) {
+                                textarea.style.textAlign = "center";
+                            } else if (this.src.includes("menue.png")) {
+                                textarea.style.textAlign = "right";
+                            }
+            
+                            // Apply the alignment to all images inside the contenteditable div
+                            images.forEach(image => {
+                                image.style.display = "block";  // Ensure images are block-level elements
+                                image.style.marginLeft = this.src.includes("menu.png") ? "0" : 
+                                                        this.src.includes("menuu.png") ? "auto" : 
+                                                        this.src.includes("menue.png") ? "auto" : "0";
+                                image.style.marginRight = this.src.includes("menu.png") ? "auto" : 
+                                                          this.src.includes("menuu.png") ? "auto" : 
+                                                          this.src.includes("menue.png") ? "0" : "auto";
+                            });
+                        });
+                    });
+                });
+                       </script>
+            </div>
+            <div id="order" class="page">
+                <div class="container">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order</th>
+                                    <th>N°Commende</th>
+                                    <th> Persone Name</th>
+                                    <th> Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-body">
+                                <!-- Data will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <script>
+                    // Sample data - replace with actual visit history data
+            
+                    function populateTable() {
+                        const tbody = document.getElementById('history-body');
+                        tbody.innerHTML = '';
+            
+                        visitHistory.forEach(entry => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${entry.order}</td>
+                                <td>${entry.name}</td>
+                                <td><a href="${entry.url}" target="_blank">${entry.url}</a></td>
+                                <td class="timestamp">${entry.timestamp}</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn delete-btn" onclick="deleteEntry(${entry.order})">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn visit-btn" onclick="visitSite('${entry.url}')">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+            
+                    function deleteEntry(order) {
+                        const index = visitHistory.findIndex(entry => entry.order === order);
+                        if (index !== -1) {
+                            visitHistory.splice(index, 1);
+                            populateTable();
+                        }
+                    }
+            
+                    function visitSite(url) {
+                        window.open(url, '_blank');
+                    }
+            
+                    // Initial table population
+                    populateTable();
+                </script>
+            </div>
+            <div id="transfer" class="page">
+                <div class="booking-container">
+                    <input type="text" class="title-input" placeholder="Saisissez le titre">
+                <div class="editor-container">
+                    <div class="selection-method">
+                        <label>Type : </label>
+                        <input type="radio" name="selection-method" id="checkbox" checked>
+                        <label for="checkbox">Aeroport</label>
+                        <input type="radio" name="selection-method" id="radio">
+                        <label for="radio">Ville</label>
+                    </div>
+                <div class="settings-container">
+                    <div class="settings-header">
+                        Basic settings
+                    </div>
+                    <div class="settings-content">
+                        <div class="form-group">
+                            <label for="fromDate">Available from Date</label>
+                            <input type="date" id="text" name="fromDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="toDate">Available to Date</label>
+                            <input type="date" id="text" name="toDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="tolocalisation">Localisation distance</label>
+                            <input type="text" id="text" name="toDate">
+                        </div>
+                        <div class="schedule-content">
+                            <div class="duration-section">
+                                <label>Duration</label>
+                                <div class="duration-group">
+                                    <span>Days</span>
+                                    <select>
+                                        <option>Monday</option>
+                                        <option>Tuesday</option>
+                                        <option>Thursday</option>
+                                        <option>Friday </option>
+                                        <option>Saturday</option>
+                                        <option>Sunday </option>
+                                    </select>
+                                </div>
+                                <div class="duration-group">
+                                    <span>Hours</span>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option> 
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                <div class="duration-group">
+                                    <span>Minutes</span>
+                                    <select>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                        <option>40</option>
+                                        <option>50</option>
+                                        <option>60</option>
+                                    </select>
+                                </div>
+                            </div>
+                         
+                
+                           
+                        </div>
+                        <button id="locationBtn">Obtenir la distance</button>
+                        <p id="result"></p>
+                    </div>
+                </div>
+               
+                <div class="price-container">
+                    <div class="price-header">
+                      Price
+                    </div>
+                    <div class="price-content">
+                        <div class="price-group">
+                            <label class="price-label">price</label>
+                            <div class="rate-container">
+                                <span>New rate</span>
+                                <button  onclick="openModal()" class="rate-button">
+                                    <span class="plus-icon">+</span>
+                                </button>
+                                <div id="rateModal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="price-section">
+                                        <div class="forme-group">
+                                            <div>
+                                            <label>General price:</label>
+                                                    <input type="text" class="forme-control" placeholder="€">
+                                                    <span>/ ticket</span>
+                                                </div>
+                                                <div>
+                                                    <label>Price from:</label>
+                                                    <input type="text" class="forme-control" placeholder="€">
+                                                    <span>/ ticket</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="conditional-prices">
+                                            <h3>Conditional prices</h3>
+                                        
+                                                <div class="price-section">
+                                                    <div class="forme-group">
+                                                    <div class="if">
+                                                        <label>IF</label>
+                                                        <select class="forme-control">
+                                                            <option>(don't use)</option>
+                                                            <option>=</option>
+                                                            <option><=</option>
+                                                            <option>>=</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <input type="number" class="forme-control" placeholder="guests">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forme-group">
+                                                <label>Price</label>
+                                                <input type="text" class="form-control" placeholder="€">
+                                                <span>/ ticket</span>
+                                            </div>
+                                            <div class="button-group">
+                                                <button class="btn btn-primary">Add conditional price</button>
+                                                <button class="btn btn-secondary">Cancel</button>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="button-group">
+                                            <button class="btn btn-primary" onclick="saveRate()">Save rate</button>
+                                            <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <p>
+                <input type="submit" value="Enregister" class="buttom">
+                <input type="submit" value="Publier"  class="buttom" disabled="disabled">
+            </p>
+                </div>
+            
+                </div>
+                <script>
+                   function openModal() {
+                        document.getElementById('rateModal').style.display = 'block';
+                    }
+            
+                    function closeModal() {
+                        document.getElementById('rateModal').style.display = 'none';
+                    }
+            
+                    function saveRate() {
+                        // Get all form values
+                        const formData = {
+                            rateTitle: document.querySelector('input[placeholder="(required)"]').value,
+                            dateFrom: document.querySelector('input[placeholder="no limits"]').value,
+                            dateTo: document.querySelector('input[placeholder="no limits"]').value,
+                            // Add more fields as needed
+                        };
+                        // Validate form
+                        if (!formData.rateTitle) {
+                            alert('Rate title is required');
+                            return;
+                        }
+                        // Process the data (you can add your own logic here)
+                        console.log('Saving rate:', formData);
+                        
+                        // Close the modal
+                        closeModal();
+                    }
+            
+                    // Close modal when clicking outside
+                    window.onclick = function(event) {
+                        const modal = document.getElementById('rateModal');
+                        if (event.target === modal) {
+                            closeModal();
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "name":"product 1",
+        "price":50,
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_IBhubBQXplbQb4pICz4vT-IXWfMXItVaGQ&s"
+    },
+    {
+        "id":2,
+        "name":"product 2",
+        "price":70,
+        "image":"https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_600,h_600/https://la-montre.ma/wp-content/uploads/2020/05/17303035_3_640.jpg"
+    },
+    {
+        "id":3,
+        "name":"product 3",
+        "price":50,
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNBIXahh-LEXBbjbOk5qJWmVZNMFT1HUiYg&s"
+    },
+    {
+        "id":4,
+        "name":"product 4",
+        "price":150,
+        "image":"https://images.hbjo-online.com/webp/images/montre-jaeger-lecoultre-master-control-geographic-stainless-steel-q4128420.jpg?w=400"
+    },
+    {
+        "id":5,
+        "name":"product 5",
+        "price":250,
+        "image":"https://parfois.ma/94265-home_default/montre-bracelet-en-acier-inoxydable-avec-charm.jpg"
+    },
+    {
+        "id":6,
+        "name":"product 6",
+        "price":90,
+        "image":"https://images.hbjo-online.com/webp/images/montre-longines-legend-diver-39mm-l37644507.jpg?w=400"
+    }
+]
